@@ -1,25 +1,24 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import NewBoard from './NewBoard'
 
 
 class BoardList extends React.Component {
   constructor(props){
     super(props);
-    this.state = {boardList: ["1", "2"]};
+    this.state = {
+      boardList: ["1"],
+      showButton: false
+    };
+  }
+
+  toggleButton = (value) => {
+    this.setState({showButton: value});
   }
 
   render() {
     return (
       <div>
-        {this.state.boardList.map((board) => 
-          <Card>
-            <CardContent>
-              <Button size="small">New Board</Button>
-            </CardContent>
-          </Card>
-      )}
+        <NewBoard/>
       </div>
     );
   }
